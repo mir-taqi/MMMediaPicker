@@ -1,0 +1,16 @@
+PODS:
+  - MMMediaPicker (0.1.0)
+
+DEPENDENCIES:
+  - MMMediaPicker (from `../`)
+
+EXTERNAL SOURCES:
+  MMMediaPicker:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MMMediaPicker: a524ef8adaa12a1fcf0de1e354aa962efb94e30f
+
+PODFILE CHECKSUM: 517f8705c0af2f84e5b30dd0922b1c6b575ba108
+
+COCOAPODS: 1.8.4

@@ -1,0 +1,6 @@
+framework module MMMediaPicker {
+  umbrella header "MMMediaPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
