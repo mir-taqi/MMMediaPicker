@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MMMediaPicker'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'A convenience cocoapod for picking up media from photo library. It also facilitates user to change appearance of navigation bar as required.'
 
 # This description is used to generate tags and improve search results.
