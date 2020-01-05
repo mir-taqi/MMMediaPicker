@@ -16,6 +16,8 @@
 		AF432FA27653629DCAE27F566096210A /* MMMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBC3264FCA9ACFD50FF4EDD6D53F496 /* MMMediaPicker-dummy.m */; };
 		D2B4D2481790F37101A79A74D70CE9A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		E3B292E83461871C942A732FD71412D4 /* MMMediaPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FECDC2F4E652D50E432C39B26F7588E4 /* MMMediaPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6258F9223C1E64B00EA69ED /* MMCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6258F9023C1E64B00EA69ED /* MMCameraViewController.m */; };
+		E6258F9323C1E64B00EA69ED /* MMCameraViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E6258F9123C1E64B00EA69ED /* MMCameraViewController.h */; };
 		E66CA71F23B4F86900BF2CF6 /* MMAlbumPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66CA71123B4F86800BF2CF6 /* MMAlbumPickerViewController.m */; };
 		E66CA72023B4F86900BF2CF6 /* MMAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E66CA71223B4F86900BF2CF6 /* MMAlbumCell.m */; };
 		E66CA72123B4F86900BF2CF6 /* MMCheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = E66CA71323B4F86900BF2CF6 /* MMCheckMarkView.m */; };
@@ -78,6 +80,8 @@
 		BCE46B9FC55B59175176F249C06C109F /* MMMediaPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MMMediaPicker.modulemap; sourceTree = "<group>"; };
 		C94CEA32F0C8EB6E07159CE3B0CC3CD2 /* Pods_MMMediaPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMMediaPicker_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57912977422D580D712D721358B8E0A /* Pods-MMMediaPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MMMediaPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E6258F9023C1E64B00EA69ED /* MMCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMCameraViewController.m; path = MMMediaPicker/Classes/MMCameraViewController.m; sourceTree = "<group>"; };
+		E6258F9123C1E64B00EA69ED /* MMCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMCameraViewController.h; path = MMMediaPicker/Classes/MMCameraViewController.h; sourceTree = "<group>"; };
 		E66CA71123B4F86800BF2CF6 /* MMAlbumPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMAlbumPickerViewController.m; path = MMMediaPicker/Classes/MMAlbumPickerViewController.m; sourceTree = "<group>"; };
 		E66CA71223B4F86900BF2CF6 /* MMAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMAlbumCell.m; path = MMMediaPicker/Classes/MMAlbumCell.m; sourceTree = "<group>"; };
 		E66CA71323B4F86900BF2CF6 /* MMCheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMCheckMarkView.m; path = MMMediaPicker/Classes/MMCheckMarkView.m; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				E66CA71323B4F86900BF2CF6 /* MMCheckMarkView.m */,
 				E66CA71E23B4F86900BF2CF6 /* MMMediaPicker.h */,
 				E66CA71523B4F86900BF2CF6 /* MMMediaPicker.m */,
+				E6258F9123C1E64B00EA69ED /* MMCameraViewController.h */,
+				E6258F9023C1E64B00EA69ED /* MMCameraViewController.m */,
 				140EAD3C3B7D4A9A47F7E4F0E3838945 /* Pod */,
 				14D7CE14C4B82FC2B4A20071A34D0545 /* Support Files */,
 			);
@@ -289,6 +295,7 @@
 				E3B292E83461871C942A732FD71412D4 /* MMMediaPicker-umbrella.h in Headers */,
 				E66CA72C23B4F86900BF2CF6 /* MMMediaPicker.h in Headers */,
 				E66CA72B23B4F86900BF2CF6 /* MMAssetsManager.h in Headers */,
+				E6258F9323C1E64B00EA69ED /* MMCameraViewController.h in Headers */,
 				E66CA72A23B4F86900BF2CF6 /* MMAssetsViewController.h in Headers */,
 				E66CA72423B4F86900BF2CF6 /* MMAlbumPickerViewController.h in Headers */,
 			);
@@ -434,6 +441,7 @@
 				E66CA72023B4F86900BF2CF6 /* MMAlbumCell.m in Sources */,
 				E66CA72123B4F86900BF2CF6 /* MMCheckMarkView.m in Sources */,
 				E66CA72323B4F86900BF2CF6 /* MMMediaPicker.m in Sources */,
+				E6258F9223C1E64B00EA69ED /* MMCameraViewController.m in Sources */,
 				AF432FA27653629DCAE27F566096210A /* MMMediaPicker-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,8 @@
 #import "MMAssetsManager.h"
 
 static MMAssetsManager *shared = nil;
+static NSBundle *bundle = nil;
+
 @implementation MMAssetsManager
 
 
@@ -23,6 +25,23 @@ static MMAssetsManager *shared = nil;
     
     return shared;
 }
+-(void)checkAuthorizationStatus{
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        
+        if(status == PHAuthorizationStatusAuthorized){
+            [self->_assets removeAllObjects];
+            [self->_assets addObjectsFromArray:[self getAllPhotos]];
+            [self setValue:[NSNumber numberWithBool:YES] forKey:@"isAccessGranted"];
+             self->_isAccessGranted = YES;
+            
+        }
+        else{
+            self->_isAccessGranted = NO;
+        }
+    }];
+    
+}
+
 
 +(id)alloc
 {
@@ -37,7 +56,9 @@ static MMAssetsManager *shared = nil;
 -(id)init {
     self = [super init];
     if (self != nil) {
-        _assets = [NSMutableArray arrayWithArray:[self getAllPhotos]];
+         _assets = [NSMutableArray array];
+        [self checkAuthorizationStatus];
+
         _selectedAssets = [NSMutableArray array];
     }
     return self;
@@ -55,6 +76,26 @@ static MMAssetsManager *shared = nil;
    }];
 
     return photos;
+}
+
+
+- (void) setLanguage:(NSString*) l{
+    
+    NSString *path = [[ NSBundle mainBundle ] pathForResource:l ofType:@"lproj" ];
+    
+    if (path == nil)
+        //in case the language does not exists
+        [self resetLocalization];
+    else
+        bundle = [NSBundle bundleWithPath:path];
+}
+- (NSString *)localizedStringForKey:(NSString *)key value:(NSString *)comment
+{
+    return [bundle localizedStringForKey:key value:comment table:nil];
+}
+- (void) resetLocalization
+{
+    bundle = [NSBundle mainBundle];
 }
 
 @end

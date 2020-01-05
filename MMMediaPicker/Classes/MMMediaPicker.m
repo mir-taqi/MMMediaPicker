@@ -29,6 +29,20 @@
 -(void)donePicking:(id)sender{
       _pickingResult(MMAssetsManager.shared.selectedAssets, self);
 }
+-(void)moveToLibraryController{
+    MMAlbumPickerViewController *vc = [[MMAlbumPickerViewController alloc]init];
+     vc.maximumNumberOfSelections = _maximumNumberOfSelects;
+     vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:_cancelNavigationButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelPicking:)];
+           self.viewControllers = @[vc];
+     
+}
+-(void)moveToCameraController{
+    MMCameraViewController *vc = [[MMCameraViewController alloc]init];
+    vc.delegate = self;
+    self.viewControllers = @[vc];
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     if(_tintColor != nil)
@@ -36,10 +50,13 @@
     if(_navigationTitle != nil)
     self.title = _navigationTitle;
     
-    MMAlbumPickerViewController *vc = [[MMAlbumPickerViewController alloc]init];
-    vc.maximumNumberOfSelections = _maximumNumberOfSelects;
-    vc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:_cancelNavigationButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelPicking:)];
-          self.viewControllers = @[vc];
+    if(_mediaType == MMMediaTypeCamera){
+          [self moveToCameraController];
+      }
+      else{
+          [self moveToLibraryController];
+          
+      }
     
    
     // Do any additional setup after loading the view.
@@ -54,5 +71,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark-Camera Delegate
+
+-(void)cancelTakingCameraPicture:(MMCameraViewController *)picker{
+    [self cancelPicking:nil];
+}
+-(void)cameraDidFinishPicking:(UIImage *)picture camera:(MMCameraViewController *)controller{
+    [MMAssetsManager.shared.selectedAssets removeAllObjects];
+    [MMAssetsManager.shared.selectedAssets addObject:picture];
+    [self donePicking:nil];
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MMAssetsManager.h"
+#import "MMCameraViewController.h"
 NS_ASSUME_NONNULL_BEGIN
-typedef void (^didFinishPicking)(NSArray *assets,id sender);
+@class MMMediaPicker;
+typedef void (^didFinishPicking)(NSArray *assets,MMMediaPicker *picker);
 
 
-@interface MMMediaPicker : UINavigationController{
+@interface MMMediaPicker : UINavigationController<MMCameraViewControllerDelegate>{
     
 }
 
@@ -20,6 +22,7 @@ typedef void (^didFinishPicking)(NSArray *assets,id sender);
 @property (nonatomic,copy)didFinishPicking pickingResult;
 @property(nonatomic, assign)UIColor *tintColor;
 @property(nonatomic, strong)NSString *navigationTitle;
+@property(nonatomic,assign)MMMediaType mediaType;
 
 @property(nonatomic, strong)NSString *doneNavigationButtonTitle;
 @property(nonatomic, strong)NSString *cancelNavigationButtonTitle;

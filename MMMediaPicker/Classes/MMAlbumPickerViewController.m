@@ -43,7 +43,24 @@
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
+     [assetsManager addObserver:self forKeyPath:@"isAccessGranted" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [self.tableView reloadData];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+      
+     if ([keyPath isEqualToString:@"isAccessGranted"]) {
+         if([change[@"new"]boolValue]){
+               dispatch_async(dispatch_get_main_queue(), ^(void) {
+             [self.tableView reloadData];
+                    });
+     }
+     }
+       
 }
 
 /*
@@ -71,7 +88,7 @@
     PHAsset *asset = assetsManager.assets[indexPath.row];
     UIImage *image = [self getAssetThumbnail:asset];
     cell.middleImageView.image = image;
-    cell.titleLabel.text = @"All photos";
+    cell.titleLabel.text = MMLocalizedString(@"All photos",@"") ;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -82,7 +99,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+     return assetsManager.isAccessGranted ?1:0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100.0f;
